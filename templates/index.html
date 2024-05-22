@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Todo List</title>
+    <link rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Dancing+Script">
+  <link rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Cinzel
+  ">
+    <style>
+      body{
+        background-color: powderblue;
+        align-items: center;
+        font-size: large;
+      }
+      a{
+        color: crimson;
+        font-family: Dancing Script;
+      }
+      button{
+        color: brown;
+        border: 0cap;
+        background-color:khaki;
+        font-family: Dancing Script;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <center>
+        <h1 style="color: deeppink; padding-top: 80px; font-family: Cinzel
+        ; text-decoration: underline;">TO DO LIST</h1>
+        <ul type="None">
+        {% for todo in todos %}
+            <li >
+            <input type="checkbox" name="done" {% if todo['done'] %}checked{% endif %} onchange="this.form.submit()">
+            <span {% if todo['done'] %}style="text-decoration: line-through"{% endif %}>{{ todo['task'] }}</span>
+            <a href="{{ url_for('check', index=loop.index0) }}">Done</a>
+            <a href="{{ url_for('edit', index=loop.index0) }}"> Edit</a>
+            <a href="{{ url_for('delete', index=loop.index0) }}">Delete</a>
+            <br><br>
+            </li>
+        {% endfor %}
+        </ul>
+        <form action="{{ url_for('add') }}" method="post">
+        <input type="text" name="todo">
+        <button type="submit">Add</button>
+        </form>
+    </center>
+  </body>
+</html>

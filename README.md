@@ -1,5 +1,6 @@
 # **Simple To-Do List**
 •A basic to-do list application that enables users to add, delete, and edit tasks. 
+
 •Built with HTML, CSS, and JavaScript for the front-end, and Flask for the back-end.
 
 ## Output
@@ -19,5 +20,6 @@ Remove tasks that are no longer needed.
 
 ## **Technologies Used**
 **Front-End:** HTML, CSS, JavaScript
+
 **Back-End:** Flask
 
